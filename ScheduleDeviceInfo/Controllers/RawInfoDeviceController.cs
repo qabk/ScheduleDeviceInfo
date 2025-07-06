@@ -26,6 +26,12 @@ namespace ScheduleDeviceInfo.Controllers
             await _rawInfoDeviceService.createRawInfoDevice(info);
             return Ok("ok");
         }
+        [HttpGet("GetRawInfoDeviceByIdAndTimeRange/{id}/{startTime}/{endTime}")]
+        public async Task<IActionResult> GetRawInfoDeviceByIdAndTimeRange(string id,string startTime,string endTime)
+        {
+            var result = await _rawInfoDeviceService.getRawInfoDeviceByIdAndStartEndTime(id, startTime,endTime);
+            return Ok(result);
+        }
 
     }
 }
